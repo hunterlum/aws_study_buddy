@@ -1,6 +1,5 @@
 import pandas as pd
 from random import shuffle
-import os
 
 class card():
     def __init__(self,service,category,question,answer):
@@ -64,7 +63,7 @@ class study_buddy():
             services_mapping[str(ct)] = service
             print(f'{str(ct)}: {service}')
         service_index = input('Select Service: ')
-        print(f'\n{"-"*10}')
+        print(f'\n{"-"*100}')
         
         cards = []
         for ct,row in self.question_bank[self.question_bank['Service']==services_mapping[service_index]].iterrows():
@@ -87,7 +86,7 @@ class study_buddy():
                 'Next Action (continue): '
             ]
             usr_input = input('\n'.join(prompt))
-            print(f'\n{"-"*10}')
+            print(f'\n{"-"*100}')
         return None
     def study(self):
         usr_input = None
@@ -101,12 +100,10 @@ class study_buddy():
                 'Next Action (new_deck): '
             ]
             usr_input = input('\n'.join(prompt))
-            print(f'\n{"-"*10}')
+            print(f'\n{"-"*100}')
         return None
 
 if __name__=='__main__':
-    #Updates faqs.csv file
-    #os.system('make')
     data = pd.read_csv('faqs.csv')
 
     #Initiates Study Buddy
