@@ -1,4 +1,4 @@
-#scrapy runspider scraper.py -o data.csv
+from time import sleep
 import scrapy
 class BrickSetSpider(scrapy.Spider):
     name = 'brick_spider'
@@ -13,8 +13,8 @@ class BrickSetSpider(scrapy.Spider):
 
     def parse(self, response):
         for category in response.xpath('//div[@class="lb-col lb-tiny-24 lb-mid-24"]'):
+            sleep(1)
             for question in category.xpath('./div[@class="lb-txt-16 lb-rtxt" or @class="lb-rtxt"]'):
-            #for question in category.xpath('./div[@class="lb-rtxt"]'):
                 yield {
                     "Service" : response.xpath("//*[@id='aws-page-content']/div/div/div/div/div/h1/text()").extract_first(),
                     'Category': category.xpath('./h2/text()').extract_first(),
