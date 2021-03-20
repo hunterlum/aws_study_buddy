@@ -18,5 +18,5 @@ Once the web scraper has run once, you will have a faqs.csv file. You do not nee
 ## Dependencies
 This application will work on any MACOS or Linux based system provided it has the following python packages.
 
-1. [scrapy](https://scrapy.org/)<br>`pip install scarpy`
+1. [scrapy](https://scrapy.org/)<br>`pip install scrapy`
 2. [pandas](https://pandas.pydata.org/)<br>`pip install pandas`
