@@ -65,10 +65,15 @@ class study_buddy():
         service_index = input('Select Service: ')
         print(f'\n{"-"*100}')
         
-        cards = []
-        for ct,row in self.question_bank[self.question_bank['Service']==services_mapping[service_index]].iterrows():
-            cards.append(card(row['Service'],row['Category'],row['Question'],row['Answer']))
-        
+        try:
+            cards = []
+            for ct,row in self.question_bank[self.question_bank['Service']==services_mapping[service_index]].iterrows():
+                cards.append(card(row['Service'],row['Category'],row['Question'],row['Answer']))
+        except:
+            print(f'\n{"-"*100}')
+            print(f'\"{service_index}\" is not a valid value. Please try again.')
+            self.choose_deck()
+
         self.deck = deck(cards)
         return None
     def study_deck(self):
